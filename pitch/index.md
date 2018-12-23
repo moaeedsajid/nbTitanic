@@ -51,7 +51,6 @@ algorithm and this is why it’s labeled “naive"
 
 ```r
 library(e1071)
-
 nbModel <- naiveBayes(Survived ~ ., data = Titanic)
 predict(nbModel, data.frame(Class = "2nd", Sex = c("Male","Female"), Age = "Child"))
 ```
@@ -60,12 +59,10 @@ predict(nbModel, data.frame(Class = "2nd", Sex = c("Male","Female"), Age = "Chil
 ## [1] No  Yes
 ## Levels: No Yes
 ```
-We have then run a prediction for both Male and female 2nd Class passengers.  We have then calculated the chance of
-survivability for a Male and Female child situated in 2nd Class.  This output simply shows that it's unlikely that the male
-child would have survived.
 
 ```r
-predict(nbModel, data.frame(Class = "2nd", Sex = c("Male","Female"), Age = "Child"),type = "raw")
+predict(nbModel, data.frame(Class = "2nd", Sex = c("Male","Female"), Age = "Child"),
+        type = "raw")
 ```
 
 ```
@@ -73,6 +70,10 @@ predict(nbModel, data.frame(Class = "2nd", Sex = c("Male","Female"), Age = "Chil
 ## [1,] 0.52213519 0.4778648
 ## [2,] 0.09721354 0.9027865
 ```
+We have then run a prediction for both Male and female 2nd Class passengers.  We have then calculated the chance of
+survivability for a Male and Female child situated in 2nd Class.  This output simply shows that it's unlikely that the male
+child would have survived.
+
 Using type = raw we get the actual numbers which shows that the male child actually has an almost 50% chance of survival
 and the female around double at over 90%
 
