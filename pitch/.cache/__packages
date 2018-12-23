@@ -1,0 +1,14 @@
+base
+methods
+datasets
+utils
+grDevices
+graphics
+stats
+grid
+vcd
+shiny
+e1071
+devtools
+usethis
+slidify

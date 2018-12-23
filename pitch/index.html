@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Titanic Survival Predictor</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Titanic Survival Predictor">
+  <meta name="author" content="Moaeed Sajid">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="libraries/widgets/bootstrap/css/bootstrap.css"></link>
+<link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Titanic Survival Predictor</h1>
+    <h2>A Naive Bayes Demo</h2>
+    <p>Moaeed Sajid<br/>Coursera - Developing Data Products</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <article data-timings="">
+    <style>
+.title-slide {
+  background-color: #FFFFFF; /* #EDE0CF; ; #CA9F9D*/
+}
+</style>
+
+<h2>Project Introduction</h2>
+
+<p>In this project I have used a Naive-Bayes ML model on the Titanic dataset built into the R datasets package  </p>
+
+<p>This dataset shows the survival rates of passengers by</p>
+
+<ul>
+<li>Class</li>
+<li>Sex </li>
+<li>Age</li>
+</ul>
+
+<p>Using these three pieces of information we can calculate the chances of survival by the three features of each passenger.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Naive-Bayes</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Naive Bayes is a family of classification algorithms based on Bayes Theorem, They all share a common principle, that every feature being classified is independent of the value of any other feature.  </p>
+
+<p>For example, a fruit may be considered to be an apple if it is </p>
+
+<ol>
+<li>Red</li>
+<li>Round</li>
+<li>About 3″ in diameter<br></li>
+</ol>
+
+<p>A Naive Bayes classifier considers each of these “features” (red, round, 3” in diameter) to contribute 
+independently to the probability that the fruit is an apple, regardless of any correlations between features.  </p>
+
+<p>Features, however, aren’t always independent which is often seen as a shortcoming of the Naive Bayes
+algorithm and this is why it’s labeled “naive&quot;</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Titanic Prediction</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">library(e1071)
+
+nbModel &lt;- naiveBayes(Survived ~ ., data = Titanic)
+predict(nbModel, data.frame(Class = &quot;2nd&quot;, Sex = c(&quot;Male&quot;,&quot;Female&quot;), Age = &quot;Child&quot;))
+</code></pre>
+
+<pre><code>## [1] No  Yes
+## Levels: No Yes
+</code></pre>
+
+<p>We have then run a prediction for both Male and female 2nd Class passengers.  We have then calculated the chance of
+survivability for a Male and Female child situated in 2nd Class.  This output simply shows that it&#39;s unlikely that the male
+child would have survived.</p>
+
+<pre><code class="r">predict(nbModel, data.frame(Class = &quot;2nd&quot;, Sex = c(&quot;Male&quot;,&quot;Female&quot;), Age = &quot;Child&quot;),type = &quot;raw&quot;)
+</code></pre>
+
+<pre><code>##              No       Yes
+## [1,] 0.52213519 0.4778648
+## [2,] 0.09721354 0.9027865
+</code></pre>
+
+<p>Using type = raw we get the actual numbers which shows that the male child actually has an almost 50% chance of survival
+and the female around double at over 90%</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Future Use Cases</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Naive Bayes Machine learning projects can also be used for...</p>
+
+<ol>
+<li>Spam/ham detection</li>
+<li>Classifying documentation</li>
+<li>Weather Prediction</li>
+<li>Image classification</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='NA'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Naive-Bayes'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Titanic Prediction'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Future Use Cases'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  <script src="libraries/widgets/bootstrap/js/bootstrap.min.js"></script>
+<script src="libraries/widgets/bootstrap/js/bootbox.min.js"></script>
+
+  <script>  
+  $(function (){ 
+    $("#example").popover(); 
+    $("[rel='tooltip']").tooltip(); 
+  });  
+  </script>  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>

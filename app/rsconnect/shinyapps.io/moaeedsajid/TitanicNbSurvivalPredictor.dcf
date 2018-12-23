@@ -1,0 +1,12 @@
+name: TitanicNbSurvivalPredictor
+title: TitanicNbSurvivalPredictor
+username:
+account: moaeedsajid
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 622343
+bundleId: 1780059
+url: https://moaeedsajid.shinyapps.io/TitanicNbSurvivalPredictor/
+when: 1545523045.74315
+asMultiple: FALSE
+asStatic: FALSE
