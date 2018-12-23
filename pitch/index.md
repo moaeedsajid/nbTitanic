@@ -14,6 +14,9 @@ knit        : slidify::knit2slides
 .title-slide {
   background-color: #FFFFFF; /* #EDE0CF; ; #CA9F9D*/
 }
+.seventy {
+   font-size: 70%;
+}
 </style>
 
 ## Project Introduction
@@ -46,7 +49,7 @@ independently to the probability that the fruit is an apple, regardless of any c
 Features, however, aren’t always independent which is often seen as a shortcoming of the Naive Bayes
 algorithm and this is why it’s labeled “naive"
 
---- .class #id
+--- .class .seventy #id
 ## Titanic Prediction
 
 ```r
@@ -76,6 +79,8 @@ child would have survived.
 
 Using type = raw we get the actual numbers which shows that the male child actually has an almost 50% chance of survival
 and the female around double at over 90%
+
+
 
 --- .class #id
 ## Future Use Cases
