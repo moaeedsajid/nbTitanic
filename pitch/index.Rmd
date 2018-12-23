@@ -50,16 +50,15 @@ algorithm and this is why it’s labeled “naive"
 ## Titanic Prediction
 ```{r echo=TRUE}
 library(e1071)
-
 nbModel <- naiveBayes(Survived ~ ., data = Titanic)
 predict(nbModel, data.frame(Class = "2nd", Sex = c("Male","Female"), Age = "Child"))
+predict(nbModel, data.frame(Class = "2nd", Sex = c("Male","Female"), Age = "Child"),
+        type = "raw")
 ```
 We have then run a prediction for both Male and female 2nd Class passengers.  We have then calculated the chance of
 survivability for a Male and Female child situated in 2nd Class.  This output simply shows that it's unlikely that the male
 child would have survived.
-```{r, echo = TRUE}
-predict(nbModel, data.frame(Class = "2nd", Sex = c("Male","Female"), Age = "Child"),type = "raw")
-```
+
 Using type = raw we get the actual numbers which shows that the male child actually has an almost 50% chance of survival
 and the female around double at over 90%
 
