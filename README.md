@@ -2,7 +2,8 @@
 
 This is for the Coursera developing dataset products week 4 assignemnt and consists of...
 
-1 - App @ https://moaeedsajid.shinyapps.io/TitanicNbSurvivalPredictor/
+1 - App @ https://moaeedsajid.shinyapps.io/TitanicNbSurvivalPredictor/ 
+  
 2 - Pitch @ https://moaeedsajid.github.io/nbTitanic/pitch/index
 
 I chose to base my app on the naive bayes algoruthm due to it's usefulness and applied it to the titanic dataset.  The app inludes images and a css stylesheet over and above the code.
